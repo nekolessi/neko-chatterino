@@ -286,6 +286,7 @@ void Application::initialize(Settings &settings, const Paths &paths)
     if (!this->args_.isFramelessEmbed)
     {
         getSettings()->currentVersion.setValue(CHATTERINO_VERSION);
+        getSettings()->requestSave();
     }
     this->emotes->initialize();
 

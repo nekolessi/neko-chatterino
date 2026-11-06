@@ -513,6 +513,11 @@ void EmotePopup::reloadEmotes()
             addEmotes(*channelChannel, *this->twitchChannel_->seventvEmotes(),
                       "7TV");
         }
+        if (Settings::instance().enableHomiesChannelEmotes)
+        {
+            addEmotes(*channelChannel, *this->twitchChannel_->homiesEmotes(),
+                      "Homies", MessageElementFlag::HomiesEmote);
+        }
     }
     // global
     if (Settings::instance().enableHomiesGlobalEmotes)
@@ -535,11 +540,6 @@ void EmotePopup::reloadEmotes()
         addEmotes(*globalChannel, *getApp()->getSeventvEmotes()->globalEmotes(),
                   "7TV");
     }
-    addTwitchEmoteSets(
-        twitchChannel_->localTwitchEmotes(),
-        *getApp()->getAccounts()->twitch.getCurrent()->accessEmoteSets(),
-        *globalChannel, *subChannel, twitchChannel_->roomId(),
-        twitchChannel_->getName());
 
     if (!subChannel->hasMessages())
     {
