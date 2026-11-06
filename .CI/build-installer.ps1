@@ -10,19 +10,9 @@ git describe --exact-match --match 'v*' *> $null;
 $isTagged = $?;
 $ErrorActionPreference = $OldErrorActionPref;
 
+Write-Output "" | Out-File Chatterino2/modes -Encoding ASCII;
 $defines = $null;
-if ($isTagged) {
-    # This is a release.
-    # Make sure, any existing `modes` file is overwritten for the user,
-    # for example when updating from nightly to stable.
-    Write-Output "" | Out-File Chatterino2/modes -Encoding ASCII;
-    $installerBaseName = "NekoChatterino.Installer";
-}
-else {
-    Write-Output nightly | Out-File Chatterino2/modes -Encoding ASCII;
-    $defines = "/DIS_NIGHTLY=1";
-    $installerBaseName = "NekoChatterino.Nightly.Installer";
-}
+$installerBaseName = "NekoChatterino.Installer";
 
 if ($Env:GITHUB_OUTPUT) {
     # This is used in CI when creating the artifact

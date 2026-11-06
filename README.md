@@ -12,8 +12,8 @@ it keeps the extra homies features, adds a portable windows build, and behaves n
 
 pick whichever windows-shaped object feels right:
 
-- **[portable ZIP (64-bit)](https://github.com/nekolessi/nekochatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-nightly-portable-windows-x64.zip)** — unzip it somewhere and carry it around like a little purse
-- **[windows installer (64-bit)](https://github.com/nekolessi/nekochatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-nightly-installer-windows-x64.exe)** — clicky clicky next next finish
+- **[portable ZIP (64-bit)](https://github.com/nekolessi/nekochatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-portable-windows-x64.zip)** — unzip it somewhere and carry it around like a little purse
+- **[windows installer (64-bit)](https://github.com/nekolessi/nekochatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-installer-windows-x64.exe)** — clicky clicky next next finish
 
 [release notes + SHA-256 checksums live over here](https://github.com/nekolessi/nekochatterino/releases/tag/v2.5.6-neko.1)
 

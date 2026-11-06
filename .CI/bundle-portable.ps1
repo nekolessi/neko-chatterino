@@ -27,16 +27,7 @@ $isTagged = $?;
 $ErrorActionPreference = $OldErrorActionPref;
 
 Write-Output portable | Out-File Chatterino2/modes -Encoding ASCII;
-if ($isTagged) {
-    # This is a release.
-    # Make sure, any existing `modes` file is overwritten for the user,
-    # for example when updating from nightly to stable.
-    $bundleBaseName = "NekoChatterino.Portable";
-}
-else {
-    Write-Output nightly | Out-File Chatterino2/modes -Append -Encoding ASCII;
-    $bundleBaseName = "NekoChatterino.Nightly.Portable";
-}
+$bundleBaseName = "NekoChatterino.Portable";
 
 if ($Env:GITHUB_OUTPUT) {
     # This is used in CI when creating the artifact

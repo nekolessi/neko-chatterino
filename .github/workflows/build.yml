@@ -15,7 +15,7 @@ on:
         description: "Build type"
         required: true
         type: choice
-        default: "auto"
+        default: "stable"
         options:
           - auto
           - nightly
@@ -29,7 +29,7 @@ concurrency:
 env:
   C2_ENABLE_LTO: ${{ startsWith(github.ref, 'refs/heads/upgrade/chatterino-') || startsWith(github.ref, 'refs/heads/bugfix-release') || startsWith(github.ref, 'refs/heads/release/')}}
   CHATTERINO_REQUIRE_CLEAN_GIT: On
-  CHATTERINO_BUILD_TYPE: ${{ case(inputs.buildType != '', inputs.buildType, 'auto') }}
+  CHATTERINO_BUILD_TYPE: ${{ case(inputs.buildType != '', inputs.buildType, 'stable') }}
   CONAN_VERSION: 2.33.0
 
 jobs:
@@ -66,11 +66,11 @@ jobs:
               echo "NIGHTLY_BUILD=Off" >> "$GITHUB_OUTPUT"
             else
               echo "Auto - did not find release tag format"
-              echo "NIGHTLY_BUILD=On" >> "$GITHUB_OUTPUT"
+              echo "NIGHTLY_BUILD=Off" >> "$GITHUB_OUTPUT"
             fi
           elif [ "${CHATTERINO_BUILD_TYPE}" = "nightly" ]; then
             echo "Override to nightly"
-            echo "NIGHTLY_BUILD=On" >> "$GITHUB_OUTPUT"
+            echo "NIGHTLY_BUILD=Off" >> "$GITHUB_OUTPUT"
           elif [ "${CHATTERINO_BUILD_TYPE}" = "stable" ]; then
             echo "Override to stable"
             echo "NIGHTLY_BUILD=Off" >> "$GITHUB_OUTPUT"

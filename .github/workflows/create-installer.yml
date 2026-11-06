@@ -114,11 +114,11 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: NekoChatterino${{ needs.check-release.outputs.IS_TAGGED != '0' && '.Nightly' || '' }}.Installer.exe
+          name: NekoChatterino.Installer.exe
           path: build/
       - uses: actions/download-artifact@v4
         with:
-          name: NekoChatterino${{ needs.check-release.outputs.IS_TAGGED != '0' && '.Nightly' || '' }}.Portable.zip
+          name: NekoChatterino.Portable.zip
           path: build/
 
       - name: Download Windows symbols
