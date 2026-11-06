@@ -129,6 +129,24 @@ jobs:
           commit: ${{ github.sha }}
           path: build/
 
+      - name: Download Linux AppImage
+        uses: dawidd6/action-download-artifact@v18
+        with:
+          workflow: build.yml
+          name: NekoChatterino-x86_64.AppImage
+          commit: ${{ github.sha }}
+          path: build/
+        continue-on-error: true
+
+      - name: Download Linux Portable
+        uses: dawidd6/action-download-artifact@v18
+        with:
+          workflow: build.yml
+          name: NekoChatterino-linux-x86_64.tar.gz
+          commit: ${{ github.sha }}
+          path: build/
+        continue-on-error: true
+
       - name: Hash files
         working-directory: build
         run: |

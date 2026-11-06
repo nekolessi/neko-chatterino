@@ -1,2 +1,4 @@
 # Normalize line endings to LF for files that Git detects as text
 *   text=auto
+*.sh text eol=lf
+*.yml text eol=lf

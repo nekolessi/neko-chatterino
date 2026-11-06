@@ -33,6 +33,71 @@ env:
   CONAN_VERSION: 2.33.0
 
 jobs:
+  build-linux:
+    name: "Build Linux (Ubuntu 22.04 Docker)"
+    runs-on: ubuntu-latest
+    container: ghcr.io/chatterino/chatterino2-build-ubuntu-22.04:latest
+    env:
+      C2_ENABLE_LTO: false
+      CHATTERINO_REQUIRE_CLEAN_GIT: Off
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          fetch-depth: 0 # allows for tags access
+
+      - name: Fix git permission error
+        run: |
+          git config --global --add safe.directory '*'
+
+      - name: Determine build type
+        id: build-type
+        shell: bash
+        run: |
+          echo "NIGHTLY_BUILD=Off" >> "$GITHUB_OUTPUT"
+
+      - name: Install packaging tools
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
+            file curl wget tar gzip ca-certificates desktop-file-utils
+
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          CXXFLAGS=-fno-sized-deallocation cmake \
+            -DCMAKE_INSTALL_PREFIX=appdir/usr/ \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DPAJLADA_SETTINGS_USE_BOOST_FILESYSTEM=On \
+            -DUSE_PRECOMPILED_HEADERS=OFF \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=On \
+            -DCHATTERINO_LTO="$C2_ENABLE_LTO" \
+            -DCMAKE_PREFIX_PATH="$Qt6_DIR/lib/cmake" \
+            -DCHATTERINO_STATIC_QT_BUILD=On \
+            -DCHATTERINO_NIGHTLY_BUILD=${{ steps.build-type.outputs.NIGHTLY_BUILD }} \
+            -DFORCE_JSON_GENERATION=Off \
+            -DCHATTERINO_PLUGINS=On \
+            ..
+          make -j"$(nproc)"
+
+      - name: Package AppImage and Portable tarball
+        run: |
+          cd build
+          sh ./../.CI/CreateAppImage.sh
+
+      - name: Upload artifact (Linux - AppImage)
+        uses: actions/upload-artifact@v4
+        with:
+          name: NekoChatterino-x86_64.AppImage
+          path: build/NekoChatterino-x86_64.AppImage
+
+      - name: Upload artifact (Linux - Portable)
+        uses: actions/upload-artifact@v4
+        with:
+          name: NekoChatterino-linux-x86_64.tar.gz
+          path: build/NekoChatterino-linux-x86_64.tar.gz
+
   build:
     name: "Build ${{ matrix.os }}, Qt ${{ matrix.qt-version }} (LTO:${{ matrix.force-lto }}, crashpad:${{ matrix.skip-crashpad && 'off' || 'on' }})"
     runs-on: ${{ matrix.os }}

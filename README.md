@@ -10,14 +10,23 @@ it keeps the extra homies features, adds a portable windows build, and behaves n
 
 ## download her
 
-pick whichever windows-shaped object feels right:
+pick whichever shape feels right for your system:
+
+### windows
 
 - **[portable ZIP (64-bit)](https://github.com/nekolessi/neko-chatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-portable-windows-x64.zip)** — unzip it somewhere and carry it around like a little purse
 - **[windows installer (64-bit)](https://github.com/nekolessi/neko-chatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-installer-windows-x64.exe)** — clicky clicky next next finish
 
+### linux / bazzite (penguin mode)
+
+for bazzite, steam deck, fedora, or whatever immutable/mutable linux distro you are currently surviving:
+
+- **[standalone AppImage (64-bit)](https://github.com/nekolessi/neko-chatterino/releases/download/v2.5.6-neko.1/NekoChatterino-x86_64.AppImage)** — single executable, completely self-contained for bazzite / immutable ostree systems. `chmod +x NekoChatterino-x86_64.AppImage` and double-click / run from terminal, or open with GearLever!
+- **[portable tarball](https://github.com/nekolessi/neko-chatterino/releases/download/v2.5.6-neko.1/NekoChatterino-linux-x86_64.tar.gz)** — extract anywhere and run `./NekoChatterino/AppRun`
+
 [release notes + SHA-256 checksums live over here](https://github.com/nekolessi/neko-chatterino/releases/tag/v2.5.6-neko.1)
 
-for the portable version, extract the ZIP, open the `Chatterino2` folder, and run `chatterino.exe`. for the installer version u can probably guess. i believe in you
+for the portable windows version, extract the ZIP, open the `Chatterino2` folder, and run `chatterino.exe`. for the installer version u can probably guess. i believe in you. for the linux AppImage, just make it executable (`chmod +x`) and run it!
 
 > [!WARNING]
 > neko's chatterino is currently unsigned. windows Smart App Control or an organization policy might block it because the computer does not know me and frankly has trust issues. only download builds from this repository.
