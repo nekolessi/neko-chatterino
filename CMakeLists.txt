@@ -146,6 +146,37 @@ find_package(Qt${MAJOR_QT_VERSION} REQUIRED
     Svg
     Concurrent
     )
+find_package(Qt${MAJOR_QT_VERSION} COMPONENTS WidgetsPrivate QUIET)
+if (NOT TARGET Qt${MAJOR_QT_VERSION}::WidgetsPrivate)
+    if (TARGET Qt${MAJOR_QT_VERSION}WidgetsPrivate)
+        add_library(Qt${MAJOR_QT_VERSION}::WidgetsPrivate ALIAS Qt${MAJOR_QT_VERSION}WidgetsPrivate)
+    else()
+        add_library(Qt${MAJOR_QT_VERSION}::WidgetsPrivate INTERFACE IMPORTED)
+        get_target_property(_qt_widgets_includes Qt${MAJOR_QT_VERSION}::Widgets INTERFACE_INCLUDE_DIRECTORIES)
+        if (_qt_widgets_includes)
+            foreach(_inc ${_qt_widgets_includes})
+                if (EXISTS "${_inc}/${Qt${MAJOR_QT_VERSION}_VERSION}/QtWidgets")
+                    target_include_directories(Qt${MAJOR_QT_VERSION}::WidgetsPrivate INTERFACE "${_inc}/${Qt${MAJOR_QT_VERSION}_VERSION}/QtWidgets")
+                endif()
+                if (EXISTS "${_inc}/QtWidgets/${Qt${MAJOR_QT_VERSION}_VERSION}/QtWidgets")
+                    target_include_directories(Qt${MAJOR_QT_VERSION}::WidgetsPrivate INTERFACE "${_inc}/QtWidgets/${Qt${MAJOR_QT_VERSION}_VERSION}/QtWidgets")
+                endif()
+            endforeach()
+        endif()
+        if (DEFINED Qt${MAJOR_QT_VERSION}_DIR)
+            file(GLOB _qt_private_candidates 
+                "${Qt${MAJOR_QT_VERSION}_DIR}/../../../include/QtWidgets/*/QtWidgets" 
+                "${Qt${MAJOR_QT_VERSION}_DIR}/../../include/QtWidgets/*/QtWidgets"
+                "${Qt${MAJOR_QT_VERSION}_DIR}/../include/QtWidgets/*/QtWidgets"
+            )
+            foreach(_cand ${_qt_private_candidates})
+                if (EXISTS "${_cand}/private/qpixmapfilter_p.h")
+                    target_include_directories(Qt${MAJOR_QT_VERSION}::WidgetsPrivate INTERFACE "${_cand}")
+                endif()
+            endforeach()
+        endif()
+    endif()
+endif()
 if(CHATTERINO_ALLOW_PRIVATE_QT_API)
     # Only exists since 6.10 and prints a warning regarding private headers
     find_package(Qt${MAJOR_QT_VERSION} COMPONENTS GuiPrivate)
