@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - "upgrade/chatterino-2.5.5"
+      - "upgrade/chatterino-2.5.6"
       - "bugfix-release/**"
       - "release/*"
   pull_request:
@@ -26,10 +27,10 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  C2_ENABLE_LTO: ${{ github.ref == 'refs/heads/upgrade/chatterino-2.5.5' || startsWith(github.ref, 'refs/heads/bugfix-release') || startsWith(github.ref, 'refs/heads/release/')}}
+  C2_ENABLE_LTO: ${{ startsWith(github.ref, 'refs/heads/upgrade/chatterino-') || startsWith(github.ref, 'refs/heads/bugfix-release') || startsWith(github.ref, 'refs/heads/release/')}}
   CHATTERINO_REQUIRE_CLEAN_GIT: On
   CHATTERINO_BUILD_TYPE: ${{ case(inputs.buildType != '', inputs.buildType, 'auto') }}
-  CONAN_VERSION: 2.11.0
+  CONAN_VERSION: 2.33.0
 
 jobs:
   build:
@@ -39,8 +40,8 @@ jobs:
       matrix:
         include:
           # Windows
-          - os: windows-2022
-            qt-version: 6.7.3
+          - os: windows-latest
+            qt-version: 6.8.3
             force-lto: false
             skip-artifact: false
             skip-crashpad: false

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Neko's Chatterino"
-#define MyAppVersion "2.5.5"
+#define MyAppVersion "2.5.6"
 #define MyAppPublisher "nekolessi"
 #define MyAppURL "https://github.com/nekolessi/nekochatterino"
 #define MyAppExeName "chatterino.exe"

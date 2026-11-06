@@ -4,7 +4,7 @@
 
 > chatterino but i touched it. many times. with a compiler open
 
-neko's chatterino is my personal fork of [Chatterino Homies](https://github.com/itzAlex/chatterino7), updated with the changes from [Chatterino 2.5.5](https://github.com/Chatterino/chatterino2/releases/tag/v2.5.5).
+neko's chatterino is my personal fork of [Chatterino Homies](https://github.com/itzAlex/chatterino7), updated with the changes from [Chatterino 2.5.6](https://github.com/Chatterino/chatterino2/releases/tag/v2.5.6).
 
 it keeps the extra homies features, adds a portable windows build, and behaves nicely in the system tray because closing an app and _actually closing it_ are apparently two completely different emotional commitments.
 
@@ -24,7 +24,7 @@ for the portable version, extract the ZIP, open the `Chatterino2` folder, and ru
 
 ## what did i do to it
 
-- dragged it from Chatterino 2.5.2 to 2.5.5 without anyone dying
+- dragged it through Chatterino 2.5.5 and 2.5.6 without anyone dying
 - kept the Chatterino Homies 7.5.2H1 feature set
 - gave it custom neko's chatterino branding + version info
 - made the **X** button minimize the app to the system tray
@@ -64,10 +64,10 @@ helpful things to include:
 
 ## building it yourself (brave)
 
-the current neko work lives on [`upgrade/chatterino-2.5.5`](https://github.com/nekolessi/nekochatterino/tree/upgrade/chatterino-2.5.5).
+the current neko work lives on [`upgrade/chatterino-2.5.6`](https://github.com/nekolessi/nekochatterino/tree/upgrade/chatterino-2.5.6).
 
 ```shell
-git clone --recurse-submodules --branch upgrade/chatterino-2.5.5 https://github.com/nekolessi/nekochatterino.git
+git clone --recurse-submodules --branch upgrade/chatterino-2.5.6 https://github.com/nekolessi/nekochatterino.git
 ```
 
 then see [Building on Windows](./BUILDING_ON_WINDOWS.md) for the upstream build instructions. there are submodules. there is Qt. there are consequences
