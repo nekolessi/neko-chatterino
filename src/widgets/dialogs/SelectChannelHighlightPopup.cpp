@@ -34,7 +34,7 @@ HighlightPhrase getRow(QString type, int selected)
         return getSettings()->highlightedUsers[selected];
     }
 
-    return {};
+    return HighlightPhrase(QString(), false, false, false, false, false, QString(), QColor());
 }
 
 SelectChannelWidget::SelectChannelWidget(int selected, QString type,
