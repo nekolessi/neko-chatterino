@@ -9,8 +9,11 @@
 #include "Application.hpp"
 #include "singletons/Settings.hpp"
 
+#include <QCheckBox>
+#include <QDialogButtonBox>
 #include <QFontMetrics>
 #include <QFrame>
+#include <QHeaderView>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QStandardItem>
@@ -30,6 +33,8 @@ HighlightPhrase getRow(QString type, int selected)
     {
         return getSettings()->highlightedUsers[selected];
     }
+
+    return {};
 }
 
 SelectChannelWidget::SelectChannelWidget(int selected, QString type,
