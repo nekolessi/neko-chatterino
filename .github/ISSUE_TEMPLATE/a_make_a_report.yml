@@ -15,7 +15,7 @@ body:
           required: true
         - label: I've looked for my problem on the [wiki](https://wiki.chatterino.com/Help/)
           required: true
-        - label: I've searched the [issues and pull requests](https://github.com/nekolessi/nekochatterino/issues?q=) for similar looking reports
+        - label: I've searched the [issues and pull requests](https://github.com/nekolessi/neko-chatterino/issues?q=) for similar looking reports
           required: true
 
   - type: textarea

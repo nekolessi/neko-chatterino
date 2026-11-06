@@ -54,7 +54,7 @@ Updates::Updates(const Paths &paths_, Settings &settings)
     : paths(paths_)
     , currentVersion_(CHATTERINO_VERSION)
     , updateGuideLink_(
-          "https://github.com/nekolessi/nekochatterino/releases/tag/"
+          "https://github.com/nekolessi/neko-chatterino/releases/tag/"
           "v2.5.6-neko.1")
 {
     qCDebug(chatterinoUpdate) << "init UpdateManager";
@@ -387,7 +387,7 @@ void Updates::checkForUpdates()
 
 #    elif defined Q_OS_LINUX
             this->updateGuideLink_ =
-                "https://github.com/nekolessi/nekochatterino/releases/tag/"
+                "https://github.com/nekolessi/neko-chatterino/releases/tag/"
                 "v2.5.6-neko.1";
 #    else
             return;

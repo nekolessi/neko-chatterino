@@ -67,7 +67,7 @@ endif()
 project(chatterino
     VERSION 2.5.6
     DESCRIPTION "Chat client for twitch.tv"
-    HOMEPAGE_URL "https://github.com/nekolessi/nekochatterino"
+    HOMEPAGE_URL "https://github.com/nekolessi/neko-chatterino"
 )
 
 if(CHATTERINO_GENERATE_COVERAGE)

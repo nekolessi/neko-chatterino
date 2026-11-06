@@ -12,10 +12,10 @@ it keeps the extra homies features, adds a portable windows build, and behaves n
 
 pick whichever windows-shaped object feels right:
 
-- **[portable ZIP (64-bit)](https://github.com/nekolessi/nekochatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-portable-windows-x64.zip)** — unzip it somewhere and carry it around like a little purse
-- **[windows installer (64-bit)](https://github.com/nekolessi/nekochatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-installer-windows-x64.exe)** — clicky clicky next next finish
+- **[portable ZIP (64-bit)](https://github.com/nekolessi/neko-chatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-portable-windows-x64.zip)** — unzip it somewhere and carry it around like a little purse
+- **[windows installer (64-bit)](https://github.com/nekolessi/neko-chatterino/releases/download/v2.5.6-neko.1/NekoChatterino-2.5.6-installer-windows-x64.exe)** — clicky clicky next next finish
 
-[release notes + SHA-256 checksums live over here](https://github.com/nekolessi/nekochatterino/releases/tag/v2.5.6-neko.1)
+[release notes + SHA-256 checksums live over here](https://github.com/nekolessi/neko-chatterino/releases/tag/v2.5.6-neko.1)
 
 for the portable version, extract the ZIP, open the `Chatterino2` folder, and run `chatterino.exe`. for the installer version u can probably guess. i believe in you
 
@@ -50,7 +50,7 @@ pressing the **X** does not kill the app. it hides neko's chatterino in the noti
 
 ## something broke :(
 
-if it is specifically a neko's chatterino problem, toss it into [this repo's issue tracker](https://github.com/nekolessi/nekochatterino/issues) with enough information for me to reenact the tragedy.
+if it is specifically a neko's chatterino problem, toss it into [this repo's issue tracker](https://github.com/nekolessi/neko-chatterino/issues) with enough information for me to reenact the tragedy.
 
 if the same thing happens in regular chatterino, report it to the [upstream Chatterino issue tracker](https://github.com/Chatterino/chatterino2/issues) instead.
 
@@ -64,10 +64,10 @@ helpful things to include:
 
 ## building it yourself (brave)
 
-the current neko work lives on [`upgrade/chatterino-2.5.6`](https://github.com/nekolessi/nekochatterino/tree/upgrade/chatterino-2.5.6).
+the current neko work lives on [`upgrade/chatterino-2.5.6`](https://github.com/nekolessi/neko-chatterino/tree/upgrade/chatterino-2.5.6).
 
 ```shell
-git clone --recurse-submodules --branch upgrade/chatterino-2.5.6 https://github.com/nekolessi/nekochatterino.git
+git clone --recurse-submodules --branch upgrade/chatterino-2.5.6 https://github.com/nekolessi/neko-chatterino.git
 ```
 
 then see [Building on Windows](./BUILDING_ON_WINDOWS.md) for the upstream build instructions. there are submodules. there is Qt. there are consequences

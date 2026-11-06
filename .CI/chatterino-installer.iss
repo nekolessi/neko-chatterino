@@ -4,7 +4,7 @@
 #define MyAppName "Neko's Chatterino"
 #define MyAppVersion "2.5.6"
 #define MyAppPublisher "nekolessi"
-#define MyAppURL "https://github.com/nekolessi/nekochatterino"
+#define MyAppURL "https://github.com/nekolessi/neko-chatterino"
 #define MyAppExeName "chatterino.exe"
 
 ; used in build-installer.ps1

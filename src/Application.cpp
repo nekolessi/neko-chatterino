@@ -257,12 +257,12 @@ void Application::initialize(Settings &settings, const Paths &paths)
                     if (Modes::instance().isNightly)
                     {
                         return QStringLiteral(
-                            "https://github.com/nekolessi/nekochatterino/"
+                            "https://github.com/nekolessi/neko-chatterino/"
                             "releases/tag/v2.5.6-neko.1");
                     }
 
                     return QStringLiteral(
-                        "https://github.com/nekolessi/nekochatterino/"
+                        "https://github.com/nekolessi/neko-chatterino/"
                         "releases/latest");
                 }();
                 QDesktopServices::openUrl(url);
@@ -278,7 +278,7 @@ void Application::initialize(Settings &settings, const Paths &paths)
         if (box->exec() == QMessageBox::Yes)
         {
             QDesktopServices::openUrl(
-                QUrl("https://github.com/nekolessi/nekochatterino/releases/tag/"
+                QUrl("https://github.com/nekolessi/neko-chatterino/releases/tag/"
                      "v2.5.6-neko.1"));
         }
     }
