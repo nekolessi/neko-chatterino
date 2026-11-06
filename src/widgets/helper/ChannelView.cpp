@@ -160,6 +160,8 @@ QString getSearchEngineURL(QString searchEngine)
         return "https://www.ask.com/web?q=";
     else if (searchEngine == "Aol")
         return "https://search.aol.com/aol/search?q=";
+
+    return "https://www.google.com/search?q=";
 }
 
 void addImageContextMenuItems(QMenu *menu,

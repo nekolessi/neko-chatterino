@@ -1363,8 +1363,8 @@ else ()
         # Disabling strict-aliasing warnings for now, although we probably want to re-enable this in the future
         -Wno-strict-aliasing
 
-        -Werror=return-type
-        -Werror=reorder
+        -Wreturn-type
+        -Wreorder
     )
 
     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")

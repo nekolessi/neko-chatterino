@@ -20,9 +20,9 @@
 namespace chatterino {
 
 EditableModelView::EditableModelView(QAbstractTableModel *model, bool movable)
-    : tableView_(new QTableView(this))
-    , selectChannel(new QPushButton())
+    : selectChannel(new QPushButton())
     , excludeChannel(new QPushButton())
+    , tableView_(new QTableView(this))
     , model_(model)
 {
     this->model_->setParent(this);
