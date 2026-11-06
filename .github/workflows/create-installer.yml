@@ -125,7 +125,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v18
         with:
           workflow: build.yml
-          name: NekoChatterino-windows-x86-64-Qt-6.7.3-symbols.pdb.7z
+          name: NekoChatterino-windows-x86-64-Qt-6.8.3-symbols.pdb.7z
           commit: ${{ github.sha }}
           path: build/
 

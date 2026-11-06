@@ -258,7 +258,7 @@ void Application::initialize(Settings &settings, const Paths &paths)
                     {
                         return QStringLiteral(
                             "https://github.com/nekolessi/nekochatterino/"
-                            "releases/tag/v7.5.5-neko.1");
+                            "releases/tag/v2.5.6-neko.1");
                     }
 
                     return QStringLiteral(
@@ -279,7 +279,7 @@ void Application::initialize(Settings &settings, const Paths &paths)
         {
             QDesktopServices::openUrl(
                 QUrl("https://github.com/nekolessi/nekochatterino/releases/tag/"
-                     "v7.5.5-neko.1"));
+                     "v2.5.6-neko.1"));
         }
     }
 
